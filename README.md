@@ -1,4 +1,4 @@
-# Demo: [Covid Live Stats](https://current-weather-report.netlify.app/)
+# Demo: [Current Weather](https://current-weather-report.netlify.app/)
 
 # Getting Started with Create React App
 

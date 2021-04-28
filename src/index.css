@@ -97,7 +97,8 @@ img {
   display: grid;
   place-items: center;
 }
-/* weather card */
+
+/* weather component */
 .weather-card {
   background-color: white;
   color: black;

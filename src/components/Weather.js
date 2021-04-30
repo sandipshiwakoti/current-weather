@@ -5,8 +5,7 @@ import { useFetch } from "../useFetch";
 const Weather = () => {
   const { id } = useParams();
   const { data, loading, error } = useFetch(
-    `https://api.openweathermap.org/data/2.5/weather?id=${id}&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=metric`,
-    "current_report"
+    `https://api.openweathermap.org/data/2.5/weather?id=${id}&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=metric`
   );
 
   if (loading) {

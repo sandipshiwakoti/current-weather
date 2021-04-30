@@ -6,8 +6,7 @@ const Home = () => {
   const [city, setCity] = useState("");
   const inputEl = useRef(null);
   const { data, loading, error } = useFetch(
-    `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=metric`,
-    "current_report"
+    `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=metric`
   );
 
   const handleSubmit = (e) => {

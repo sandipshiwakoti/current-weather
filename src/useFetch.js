@@ -14,32 +14,66 @@ export const useFetch = (url, type) => {
       if (responsedData.cod === "400") {
         throw new Error();
       }
-      if (type === "city_name") {
+      if (type === "current_report") {
         const {
           id,
           weather,
           name,
           dt,
-          main: { temp },
-          sys: { country },
+          main: { temp, feels_like, temp_min, temp_max, pressure, humidity },
+          sys: { country, sunrise, sunset },
+          visibility,
+          wind: { speed },
+          coord: { lon, lat },
+          clouds: { all },
         } = responsedData;
         const [elem] = weather;
         const { description, icon } = elem;
-        let newDate = new Date(dt * 1000);
-        newDate = date.format(newDate, "hh:mm A, MMM DD");
+
+        let reportDate = new Date(dt * 1000);
+        reportDate = date.format(reportDate, "hh:mm A, MMM DD");
+        let reportTime = new Date(dt * 1000);
+        reportTime = date.format(reportTime, "hh:mm A");
+
+        let sunriseTime = new Date(sunrise * 1000);
+        sunriseTime = date.format(sunriseTime, "hh:mm A");
+        let sunsetTime = new Date(sunset * 1000);
+        sunsetTime = date.format(sunsetTime, "hh:mm A");
+
         const iconUrl = `http://openweathermap.org/img/wn/${icon}@2x.png`;
-        setData({ id, name, description, iconUrl, newDate, temp, country });
-      } else if (type === "city_id") {
-        console.log("hi");
+        const finalData = {
+          id,
+          name,
+          description,
+          iconUrl,
+          reportDate,
+          reportTime,
+          temp,
+          country,
+          feels_like,
+          temp_min,
+          temp_max,
+          pressure,
+          humidity,
+          sunriseTime,
+          sunsetTime,
+          visibility,
+          speed,
+          lon,
+          lat,
+          all,
+        };
+        setData(finalData);
+        console.log(finalData);
       }
       setLoading(false);
       setError(false);
     } catch (err) {
-      console.clear();
+      console.log(err);
       setLoading(false);
       setError(true);
     }
-  }, [url]);
+  }, [url, type]);
 
   useEffect(() => {
     fetchData();

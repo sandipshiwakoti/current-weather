@@ -7,7 +7,7 @@ const Home = () => {
   const inputEl = useRef(null);
   const { data, loading, error } = useFetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=metric`,
-    "city_name"
+    "current_report"
   );
 
   const handleSubmit = (e) => {
@@ -15,7 +15,15 @@ const Home = () => {
     setCity(inputEl.current.value);
   };
 
-  const { id, name, description, iconUrl, newDate: date, temp, country } = data;
+  const {
+    id,
+    name,
+    description,
+    iconUrl,
+    reportDate: date,
+    temp,
+    country,
+  } = data;
 
   return (
     <section className="section home">
@@ -53,7 +61,7 @@ const Home = () => {
               </div>
               <p>{description}</p>
               <div className="link-container">
-                <Link to="/weather/125" className="btn-more">
+                <Link to={`/weather/${id}`} className="btn-more">
                   see more
                 </Link>
               </div>

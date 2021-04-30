@@ -9,6 +9,7 @@
     "chart.js": "^3.2.0",
     "date-and-time": "^1.0.0",
     "date-time": "^4.0.0",
+    "gh-pages": "^3.1.0",
     "react": "^17.0.2",
     "react-chartjs-2": "^3.0.3",
     "react-dom": "^17.0.2",
@@ -17,8 +18,8 @@
     "web-vitals": "^1.1.1"
   },
   "scripts": {
-    "start": "env-cmd react-scripts start",
-    "build": "env-cmd react-scripts build",
+    "start": "react-scripts start",
+    "build": "CI= react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

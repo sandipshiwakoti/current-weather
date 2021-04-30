@@ -41,6 +41,8 @@ const Weather = () => {
     speed,
     all: cloudiness,
   } = data;
+
+  document.title = `${name} || Weather`;
   return (
     <section className="section weather">
       <div className="section-center">

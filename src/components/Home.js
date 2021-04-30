@@ -41,7 +41,9 @@ const Home = () => {
             search
           </button>
         </form>
-        {loading && !error && <h1 className="section-title">loading...</h1>}
+        {loading && !error && city && (
+          <h1 className="section-title">loading...</h1>
+        )}
         {!loading && error && city && (
           <h1 className="section-title">not found!</h1>
         )}

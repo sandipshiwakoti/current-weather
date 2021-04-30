@@ -64,12 +64,11 @@ export const useFetch = (url, type) => {
           all,
         };
         setData(finalData);
-        console.log(finalData);
       }
       setLoading(false);
       setError(false);
     } catch (err) {
-      console.log(err);
+      console.clear();
       setLoading(false);
       setError(true);
     }
